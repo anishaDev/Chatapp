@@ -16,7 +16,9 @@ const Message = ({time, isLeft, message, coverImage}) => {
 
   let hour = date.getHours();
   const day = hour >= 12 ? 'PM' : 'AM';
+
   let mintues = date.getMinutes();
+   const mint =mintues< 10  ? '0'+ mintues : mintues
   const [modalVisible, setModalVisible] = useState(false);
   const isOnLeft = type => {
     if (isLeft && type === 'messageContainer') {
@@ -58,7 +60,7 @@ const Message = ({time, isLeft, message, coverImage}) => {
             style={[
               styles.time,
               isOnLeft('time'),
-            ]}>{`${hour}:${mintues}${day}`}</Text>
+            ]}>{`${hour}:${mint}${day}`}</Text>
         </View>
       </View>
       <TouchableOpacity onPress={() => setModalVisible(true)}>

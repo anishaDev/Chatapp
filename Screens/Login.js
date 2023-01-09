@@ -21,7 +21,7 @@ const Login = ({navigation}) => {
 
 
 
-  
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   useEffect(() => {
@@ -42,46 +42,12 @@ const Login = ({navigation}) => {
   
     navigation.navigate('Home');
   };
-//   const authStatus = await messaging().requestPermission();
-//   const enabled =
-//     authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
-//     authStatus === messaging.AuthorizationStatus.PROVISIONAL;
-
-//   if (enabled) {
-//     console.log('Authorization status:', authStatus);
-//     getFcmToken()
-//   }
-// }
-  // const getFcmToken = async () => {
-  //   let fcmToken = await AsyncStorage.getItem('fcmToken');
-  //   console.log(fcmToken,"old token");
-  //   if (!fcmToken) {
-  //     try {
-  //       const fcmToken = await messaging().getToken();
-  //       if (fcmToken) {
-  //         console.log(fcmToken,"new token");
-  //       await  AsyncStorage.setItem("fcmToken",fcmToken);
-  
-  
-  
-  //       } 
-  //     } catch (error) {
-  //       console.log(error, 'error in fcmtoken');
-  //     }
-  //   }
-  // }
-  // let fcmToken = await AsyncStorage.getItem('fcmToken');
-const  tokengenerate = async()=>{
-  let Token = await AsyncStorage.getItem('fcmToken')
-  console.log(Token,"token-->")
-  return Token;
-}
 
 
 
   async function onGoogleButtonPress() {
-    let Token = await AsyncStorage.getItem('fcmToken')
-    console.log(Token,"-->token")
+    let Token = await AsyncStorage.getItem('fcmToken',Token)
+    console.log(Token,"-->asynctoken")
     GoogleSignin.hasPlayServices().then(async () => {
       GoogleSignin.signIn()
       .then(response => {
@@ -100,11 +66,10 @@ const  tokengenerate = async()=>{
                 last_name,
                 family_name,
                 email_verified,
-                picture
+                picture,
+               
                  } = res.additionalUserInfo.profile;
               const {uid, email,} = res.user._user;
-              
-            
               const userData = {
                 token:Token,
                 id: uid,
