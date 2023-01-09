@@ -143,7 +143,7 @@ const Home = ({navigation}) => {
         style={{
           width: '84%',
           height: 50,
-          backgroundColor: '#12558a',
+          backgroundColor: 'blue',
           borderRadius: 10,
           marginTop: 30,
           justifyContent: 'center',

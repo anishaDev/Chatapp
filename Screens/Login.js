@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
     width:"100%",
     height:"65%",
     position:'absolute',
-    backgroundColor:'#013455',
+    backgroundColor:'blue',
     borderTopLeftRadius:60,
     bottom:0,
   },
